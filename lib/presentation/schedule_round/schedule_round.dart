@@ -20,6 +20,10 @@ class ScheduleRound extends StatefulWidget {
 class _ScheduleRoundState extends State<ScheduleRound> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
+  // Services
+  final FriendInviteService _inviteService = FriendInviteService();
+  final NotificationsService _notificationsService = NotificationsService();
+
   // Form state variables
   Map<String, dynamic>? selectedCourse;
   DateTime? selectedDate;
@@ -169,6 +173,18 @@ class _ScheduleRoundState extends State<ScheduleRound> {
 
   void _createRound() {
     if (!isFormValid) return;
+
+    final Map<String, dynamic> roundData = {
+      'course': selectedCourse,
+      'date': selectedDate,
+      'time': selectedTime,
+      'notes': notes,
+    };
+
+    // Send invites and notify friends
+    // TODO: Replace with actual service implementation
+    _inviteService.sendInvites(selectedFriends, roundData);
+    _notificationsService.sendPushNotification('Round created');
 
     // Show success message
     ScaffoldMessenger.of(context).showSnackBar(
