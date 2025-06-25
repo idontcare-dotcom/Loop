@@ -4,19 +4,18 @@ import 'package:sizer/sizer.dart';
 
 import '../widgets/custom_error_widget.dart';
 import 'core/app_export.dart';
+import 'config/app_config.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await AppConfig.load();
   ErrorWidget.builder = (FlutterErrorDetails details) {
     return CustomErrorWidget(
       errorDetails: details,
     );
   };
-  Future.wait([
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
-  ]).then((value) {
-    runApp(MyApp());
-  });
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
