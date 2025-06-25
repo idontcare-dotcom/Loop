@@ -326,14 +326,23 @@ class _SettingsSectionWidgetState extends State<SettingsSectionWidget> {
               subtitle: 'Tee time reminders and score updates',
               iconName: 'notifications',
               value: preferences["notifications"] as bool,
-              onChanged: (value) {
+              onChanged: (value) async {
                 setState(() {
                   preferences["notifications"] = value;
                 });
                 if (value) {
-                  // TODO: Replace with actual notification integration
-                  _notificationsService
+                  final success = await _notificationsService
                       .sendPushNotification('Notifications enabled');
+                  if (!success) {
+                    if (context.mounted) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: const Text('Failed to enable notifications'),
+                          backgroundColor: AppTheme.errorLight,
+                        ),
+                      );
+                    }
+                  }
                 }
               },
             ),

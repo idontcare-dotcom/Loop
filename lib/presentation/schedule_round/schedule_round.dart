@@ -171,7 +171,7 @@ class _ScheduleRoundState extends State<ScheduleRound> {
     });
   }
 
-  void _createRound() {
+  Future<void> _createRound() async {
     if (!isFormValid) return;
 
     final Map<String, dynamic> roundData = {
@@ -182,20 +182,24 @@ class _ScheduleRoundState extends State<ScheduleRound> {
     };
 
     // Send invites and notify friends
-    // TODO: Replace with actual service implementation
-    _inviteService.sendInvites(selectedFriends, roundData);
-    _notificationsService.sendPushNotification('Round created');
+    final invitesSent =
+        await _inviteService.sendInvites(selectedFriends, roundData);
+    final notificationSent =
+        await _notificationsService.sendPushNotification('Round created');
 
-    // Show success message
+    // Show message based on result
+    final success = invitesSent && notificationSent;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(
-          'Round created successfully! Invitations sent to ${selectedFriends.length} friends.',
+          success
+              ? 'Round created successfully! Invitations sent to ${selectedFriends.length} friends.'
+              : 'Round created but some notifications failed.',
           style: AppTheme.lightTheme.textTheme.bodyMedium?.copyWith(
             color: AppTheme.lightTheme.colorScheme.onInverseSurface,
           ),
         ),
-        backgroundColor: AppTheme.successLight,
+        backgroundColor: success ? AppTheme.successLight : AppTheme.errorLight,
         behavior: SnackBarBehavior.floating,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16.0),
@@ -234,7 +238,7 @@ class _ScheduleRoundState extends State<ScheduleRound> {
         centerTitle: true,
         actions: [
           TextButton(
-            onPressed: isFormValid ? _createRound : null,
+            onPressed: isFormValid ? () async => _createRound() : null,
             child: Text(
               'Create',
               style: AppTheme.lightTheme.textTheme.bodyMedium?.copyWith(
@@ -328,7 +332,7 @@ class _ScheduleRoundState extends State<ScheduleRound> {
             width: double.infinity,
             height: 6.h,
             child: ElevatedButton(
-              onPressed: isFormValid ? _createRound : null,
+              onPressed: isFormValid ? () async => _createRound() : null,
               style: ElevatedButton.styleFrom(
                 backgroundColor: isFormValid
                     ? AppTheme.lightTheme.colorScheme.primary
