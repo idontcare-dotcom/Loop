@@ -48,3 +48,9 @@ Execute all unit and widget tests with:
 ```bash
 flutter test
 ```
+
+## Dark Mode Color Palette
+
+The colors used when the application runs in dark mode are defined in
+`lib/theme/dark_palette.dart`. These constants mirror the values consumed by
+`AppTheme.darkTheme` and can be referenced directly throughout the app.
