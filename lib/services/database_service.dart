@@ -24,34 +24,54 @@ class DatabaseService {
             );
 
   Future<List<Round>> fetchRounds() async {
-    final response = await _dio.get('rounds');
-    final data = response.data as List<dynamic>;
-    return data
-        .map((e) => Round.fromJson(e as Map<String, dynamic>))
-        .toList();
+    try {
+      final response = await _dio.get('rounds');
+      final data = response.data as List<dynamic>;
+      return data
+          .map((e) => Round.fromJson(e as Map<String, dynamic>))
+          .toList();
+    } on DioException catch (e) {
+      throw Exception('Failed to fetch rounds: ${e.message}');
+    }
   }
 
   Future<List<Score>> fetchScores() async {
-    final response = await _dio.get('scores');
-    final data = response.data as List<dynamic>;
-    return data
-        .map((e) => Score.fromJson(e as Map<String, dynamic>))
-        .toList();
+    try {
+      final response = await _dio.get('scores');
+      final data = response.data as List<dynamic>;
+      return data
+          .map((e) => Score.fromJson(e as Map<String, dynamic>))
+          .toList();
+    } on DioException catch (e) {
+      throw Exception('Failed to fetch scores: ${e.message}');
+    }
   }
 
   Future<List<Player>> fetchLeaderboard() async {
-    final response = await _dio.get('leaderboard');
-    final data = response.data as List<dynamic>;
-    return data
-        .map((e) => Player.fromJson(e as Map<String, dynamic>))
-        .toList();
+    try {
+      final response = await _dio.get('leaderboard');
+      final data = response.data as List<dynamic>;
+      return data
+          .map((e) => Player.fromJson(e as Map<String, dynamic>))
+          .toList();
+    } on DioException catch (e) {
+      throw Exception('Failed to fetch leaderboard: ${e.message}');
+    }
   }
 
   Future<void> addScore(Score score) async {
-    await _dio.post('scores', data: jsonEncode(score.toJson()));
+    try {
+      await _dio.post('scores', data: jsonEncode(score.toJson()));
+    } on DioException catch (e) {
+      throw Exception('Failed to add score: ${e.message}');
+    }
   }
 
   Future<void> addRound(Round round) async {
-    await _dio.post('rounds', data: jsonEncode(round.toJson()));
+    try {
+      await _dio.post('rounds', data: jsonEncode(round.toJson()));
+    } on DioException catch (e) {
+      throw Exception('Failed to add round: ${e.message}');
+    }
   }
 }
