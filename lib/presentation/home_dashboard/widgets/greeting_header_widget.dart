@@ -48,7 +48,7 @@ class GreetingHeaderWidget extends StatelessWidget {
                             color: Theme.of(context)
                                 .colorScheme
                                 .onSurface
-                                .withValues(alpha: 0.7),
+                                .withOpacity(0.7),
                           ),
                     ),
                     SizedBox(height: 0.5.h),
@@ -69,7 +69,7 @@ class GreetingHeaderWidget extends StatelessWidget {
                   color: Theme.of(context)
                       .colorScheme
                       .primary
-                      .withValues(alpha: 0.1),
+                      .withOpacity(0.1),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Row(
@@ -101,7 +101,7 @@ class GreetingHeaderWidget extends StatelessWidget {
                 color: Theme.of(context)
                     .colorScheme
                     .onSurface
-                    .withValues(alpha: 0.6),
+                    .withOpacity(0.6),
                 size: 16,
               ),
               SizedBox(width: 1.w),
@@ -111,7 +111,7 @@ class GreetingHeaderWidget extends StatelessWidget {
                       color: Theme.of(context)
                           .colorScheme
                           .onSurface
-                          .withValues(alpha: 0.6),
+                          .withOpacity(0.6),
                     ),
               ),
             ],

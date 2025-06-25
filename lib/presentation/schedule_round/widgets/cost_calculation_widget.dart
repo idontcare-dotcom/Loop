@@ -51,7 +51,7 @@ class CostCalculationWidget extends StatelessWidget {
                 padding: EdgeInsets.all(3.w),
                 decoration: BoxDecoration(
                   color: AppTheme.lightTheme.colorScheme.surface
-                      .withValues(alpha: 0.5),
+                      .withOpacity(0.5),
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(
                     color: AppTheme.dividerLight,
@@ -133,9 +133,9 @@ class CostCalculationWidget extends StatelessWidget {
                   gradient: LinearGradient(
                     colors: [
                       AppTheme.lightTheme.colorScheme.primary
-                          .withValues(alpha: 0.1),
+                          .withOpacity(0.1),
                       AppTheme.lightTheme.colorScheme.primary
-                          .withValues(alpha: 0.05),
+                          .withOpacity(0.05),
                     ],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
@@ -143,7 +143,7 @@ class CostCalculationWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16),
                   border: Border.all(
                     color: AppTheme.lightTheme.colorScheme.primary
-                        .withValues(alpha: 0.3),
+                        .withOpacity(0.3),
                     style: BorderStyle.solid,
                   ),
                 ),
@@ -190,7 +190,7 @@ class CostCalculationWidget extends StatelessWidget {
                   padding: EdgeInsets.all(3.w),
                   decoration: BoxDecoration(
                     color: AppTheme.lightTheme.colorScheme.surface
-                        .withValues(alpha: 0.3),
+                        .withOpacity(0.3),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Column(
@@ -269,7 +269,7 @@ class CostCalculationWidget extends StatelessWidget {
                 padding: EdgeInsets.symmetric(vertical: 4.h),
                 decoration: BoxDecoration(
                   color: AppTheme.lightTheme.colorScheme.surface
-                      .withValues(alpha: 0.5),
+                      .withOpacity(0.5),
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(
                     color: AppTheme.dividerLight,

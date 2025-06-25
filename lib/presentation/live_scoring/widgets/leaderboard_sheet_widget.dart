@@ -105,7 +105,7 @@ class LeaderboardSheetWidget extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: isCurrentPlayer
                             ? AppTheme.lightTheme.colorScheme.primary
-                                .withValues(alpha: 0.1)
+                                .withOpacity(0.1)
                             : AppTheme.lightTheme.cardColor,
                         borderRadius: BorderRadius.circular(16.0),
                         border: isCurrentPlayer
@@ -190,7 +190,7 @@ class LeaderboardSheetWidget extends StatelessWidget {
                             decoration: BoxDecoration(
                               color:
                                   _getScoreColor(player["currentScore"] as int)
-                                      .withValues(alpha: 0.1),
+                                      .withOpacity(0.1),
                               borderRadius: BorderRadius.circular(12.0),
                               border: Border.all(
                                 color: _getScoreColor(

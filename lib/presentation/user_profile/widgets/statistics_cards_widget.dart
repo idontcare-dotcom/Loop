@@ -36,11 +36,11 @@ class StatisticsCardsWidget extends StatelessWidget {
               width: double.infinity,
               height: 20.h,
               decoration: BoxDecoration(
-                color: AppTheme.lightTheme.primaryColor.withValues(alpha: 0.1),
+                color: AppTheme.lightTheme.primaryColor.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(12),
                 border: Border.all(
                   color:
-                      AppTheme.lightTheme.primaryColor.withValues(alpha: 0.3),
+                      AppTheme.lightTheme.primaryColor.withOpacity(0.3),
                 ),
               ),
               child: Center(

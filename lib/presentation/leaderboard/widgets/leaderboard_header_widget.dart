@@ -39,10 +39,10 @@ class LeaderboardHeaderWidget extends StatelessWidget {
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 3.w, vertical: 1.h),
                 decoration: BoxDecoration(
-                  color: AppTheme.successLight.withValues(alpha: 0.1),
+                  color: AppTheme.successLight.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(
-                    color: AppTheme.successLight.withValues(alpha: 0.3),
+                    color: AppTheme.successLight.withOpacity(0.3),
                   ),
                 ),
                 child: Row(
@@ -111,7 +111,7 @@ class LeaderboardHeaderWidget extends StatelessWidget {
                           .textTheme
                           .bodySmall!
                           .color!
-                          .withValues(alpha: 0.7),
+                          .withOpacity(0.7),
                     ),
               ),
               GestureDetector(

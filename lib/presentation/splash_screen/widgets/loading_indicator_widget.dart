@@ -93,7 +93,7 @@ class GolfLoadingPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final Paint paint = Paint()
-      ..color = color.withValues(alpha: 0.3)
+      ..color = color.withOpacity(0.3)
       ..style = PaintingStyle.stroke
       ..strokeWidth = 3.0
       ..strokeCap = StrokeCap.round;
@@ -147,7 +147,7 @@ class GolfLoadingPainter extends CustomPainter {
 
       // Add golf ball dimples
       final Paint dimplePaint = Paint()
-        ..color = color.withValues(alpha: 0.5)
+        ..color = color.withOpacity(0.5)
         ..style = PaintingStyle.fill;
 
       canvas.drawCircle(Offset(ballX - 1, ballY - 1), 0.5, dimplePaint);

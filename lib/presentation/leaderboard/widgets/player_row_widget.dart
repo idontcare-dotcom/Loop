@@ -144,7 +144,7 @@ class PlayerRowWidget extends StatelessWidget {
                                           .textTheme
                                           .bodySmall!
                                           .color!
-                                          .withValues(alpha: 0.7),
+                                          .withOpacity(0.7),
                                     ),
                           ),
                         ],
@@ -156,7 +156,7 @@ class PlayerRowWidget extends StatelessWidget {
                         value: holesCompleted / totalHoles,
                         backgroundColor: Theme.of(context)
                             .primaryColor
-                            .withValues(alpha: 0.2),
+                            .withOpacity(0.2),
                         valueColor: AlwaysStoppedAnimation<Color>(
                           Theme.of(context).primaryColor,
                         ),
