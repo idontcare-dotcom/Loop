@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:loop_golf/theme/dark_palette.dart';
 
 /// A class that contains all theme configurations for the golf coordination application.
 class AppTheme {
@@ -24,46 +25,46 @@ class AppTheme {
   static const Color onSurfaceLight = Color(0xFF1C1B1F);
   static const Color onErrorLight = Color(0xFFFFFFFF);
 
-  static const Color primaryDark = Color(0xFF4CAF50);
-  static const Color primaryVariantDark = Color(0xFF2E7D32);
-  static const Color secondaryDark = Color(0xFF42A5F5);
-  static const Color secondaryVariantDark = Color(0xFF1565C0);
+  static const Color primaryDark = DarkPalette.primary;
+  static const Color primaryVariantDark = DarkPalette.primaryVariant;
+  static const Color secondaryDark = DarkPalette.secondary;
+  static const Color secondaryVariantDark = DarkPalette.secondaryVariant;
   static const Color backgroundDark =
-      Color(0xFF121212); // Material Design 3 dark surface
-  static const Color surfaceDark = Color(0xFF121212);
-  static const Color errorDark = Color(0xFFEF5350);
-  static const Color successDark = Color(0xFF66BB6A);
-  static const Color warningDark = Color(0xFFFFB74D);
-  static const Color accentDark = Color(0xFFFF8F00);
-  static const Color onPrimaryDark = Color(0xFF000000);
-  static const Color onSecondaryDark = Color(0xFF000000);
+      DarkPalette.background; // Material Design 3 dark surface
+  static const Color surfaceDark = DarkPalette.surface;
+  static const Color errorDark = DarkPalette.error;
+  static const Color successDark = DarkPalette.success;
+  static const Color warningDark = DarkPalette.warning;
+  static const Color accentDark = DarkPalette.accent;
+  static const Color onPrimaryDark = DarkPalette.onPrimary;
+  static const Color onSecondaryDark = DarkPalette.onSecondary;
   static const Color onBackgroundDark =
-      Color(0xFFE6E1E5); // High-contrast light text
-  static const Color onSurfaceDark = Color(0xFFE6E1E5);
-  static const Color onErrorDark = Color(0xFF000000);
+      DarkPalette.onBackground; // High-contrast light text
+  static const Color onSurfaceDark = DarkPalette.onSurface;
+  static const Color onErrorDark = DarkPalette.onError;
 
   // Card and dialog colors with subtle elevation
   static const Color cardLight = Color(0xFFFAFAFA);
-  static const Color cardDark = Color(0xFF1E1E1E);
+  static const Color cardDark = DarkPalette.card;
   static const Color dialogLight = Color(0xFFFFFFFF);
-  static const Color dialogDark = Color(0xFF2D2D2D);
+  static const Color dialogDark = DarkPalette.dialog;
 
   // Shadow colors for Material Design 3 elevation
   static const Color shadowLight = Color(0x1A000000);
-  static const Color shadowDark = Color(0x1AFFFFFF);
+  static const Color shadowDark = DarkPalette.shadow;
 
   // Divider colors for spatial definition
   static const Color dividerLight = Color(0x1F1C1B1F);
-  static const Color dividerDark = Color(0x1FE6E1E5);
+  static const Color dividerDark = DarkPalette.divider;
 
   // Text colors with proper emphasis levels
   static const Color textHighEmphasisLight = Color(0xDE1C1B1F); // 87% opacity
   static const Color textMediumEmphasisLight = Color(0x991C1B1F); // 60% opacity
   static const Color textDisabledLight = Color(0x611C1B1F); // 38% opacity
 
-  static const Color textHighEmphasisDark = Color(0xDEE6E1E5); // 87% opacity
-  static const Color textMediumEmphasisDark = Color(0x99E6E1E5); // 60% opacity
-  static const Color textDisabledDark = Color(0x61E6E1E5); // 38% opacity
+  static const Color textHighEmphasisDark = DarkPalette.textHighEmphasis; // 87% opacity
+  static const Color textMediumEmphasisDark = DarkPalette.textMediumEmphasis; // 60% opacity
+  static const Color textDisabledDark = DarkPalette.textDisabled; // 38% opacity
 
   /// Light theme optimized for outdoor golf usage
   static ThemeData lightTheme = ThemeData(
