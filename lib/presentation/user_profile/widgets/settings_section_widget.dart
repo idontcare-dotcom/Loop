@@ -18,6 +18,8 @@ class SettingsSectionWidget extends StatefulWidget {
 class _SettingsSectionWidgetState extends State<SettingsSectionWidget> {
   late Map<String, dynamic> preferences;
 
+  final NotificationsService _notificationsService = NotificationsService();
+
   @override
   void initState() {
     super.initState();
@@ -328,6 +330,11 @@ class _SettingsSectionWidgetState extends State<SettingsSectionWidget> {
                 setState(() {
                   preferences["notifications"] = value;
                 });
+                if (value) {
+                  // TODO: Replace with actual notification integration
+                  _notificationsService
+                      .sendPushNotification('Notifications enabled');
+                }
               },
             ),
             Divider(color: AppTheme.dividerLight, height: 1),
