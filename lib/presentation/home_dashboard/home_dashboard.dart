@@ -225,7 +225,11 @@ class _HomeDashboardState extends State<HomeDashboard> {
                     RecentScoresWidget(
                       scores: recentScores,
                       onScoreCardTap: (scoreData) {
-                        // Navigate to score details
+                        Navigator.pushNamed(
+                          context,
+                          '/round-detail',
+                          arguments: scoreData['id'],
+                        );
                       },
                       onScoreCardLongPress: (scoreData) {
                         _showScoreContextMenu(scoreData);
@@ -387,7 +391,11 @@ class _HomeDashboardState extends State<HomeDashboard> {
               ),
               onTap: () {
                 Navigator.pop(context);
-                // Navigate to score details
+                Navigator.pushNamed(
+                  context,
+                  '/round-detail',
+                  arguments: scoreData['id'],
+                );
               },
             ),
             ListTile(
