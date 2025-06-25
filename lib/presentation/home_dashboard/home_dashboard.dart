@@ -192,22 +192,7 @@ class _HomeDashboardState extends State<HomeDashboard> {
 
                     SizedBox(height: 3.h),
 
-                    // Recent Scores Section
-                    FutureBuilder<List<Score>>( 
-                      future: _recentScoresFuture,
-                      builder: (context, snapshot) {
-                        if (!snapshot.hasData) {
-                          return const SizedBox.shrink();
-                        }
-                        final scores =
-                            snapshot.data!.map((e) => e.toJson()).toList();
-                        return RecentScoresWidget(
-                          scores: scores,
-                          onScoreCardTap: (scoreData) {},
-                          onScoreCardLongPress: (scoreData) {
-                            _showScoreContextMenu(scoreData);
-                          },
-                        );
+                    // Recent Scores Section                 
                       },
                     ),
 
@@ -366,7 +351,11 @@ class _HomeDashboardState extends State<HomeDashboard> {
               ),
               onTap: () {
                 Navigator.pop(context);
-                // Navigate to score details
+                Navigator.pushNamed(
+                  context,
+                  '/round-detail',
+                  arguments: scoreData['id'],
+                );
               },
             ),
             ListTile(
