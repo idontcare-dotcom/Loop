@@ -46,7 +46,7 @@ class HoleInfoWidget extends StatelessWidget {
             'HOLE',
             style: AppTheme.lightTheme.textTheme.labelMedium?.copyWith(
               color: AppTheme.lightTheme.colorScheme.onPrimary
-                  .withValues(alpha: 0.8),
+                  .withOpacity(0.8),
               letterSpacing: 2.0,
             ),
           ),
@@ -73,7 +73,7 @@ class HoleInfoWidget extends StatelessWidget {
                 width: 1,
                 height: 6.h,
                 color: AppTheme.lightTheme.colorScheme.onPrimary
-                    .withValues(alpha: 0.3),
+                    .withOpacity(0.3),
               ),
               _buildInfoItem(
                 icon: 'straighten',
@@ -99,7 +99,7 @@ class HoleInfoWidget extends StatelessWidget {
         CustomIconWidget(
           iconName: icon,
           color:
-              AppTheme.lightTheme.colorScheme.onPrimary.withValues(alpha: 0.8),
+              AppTheme.lightTheme.colorScheme.onPrimary.withOpacity(0.8),
           size: 24,
         ),
         SizedBox(height: 1.h),
@@ -107,7 +107,7 @@ class HoleInfoWidget extends StatelessWidget {
           label,
           style: AppTheme.lightTheme.textTheme.labelSmall?.copyWith(
             color: AppTheme.lightTheme.colorScheme.onPrimary
-                .withValues(alpha: 0.8),
+                .withOpacity(0.8),
             letterSpacing: 1.0,
           ),
         ),

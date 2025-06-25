@@ -104,7 +104,7 @@ class _FilterOptionsWidgetState extends State<FilterOptionsWidget> {
     return Container(
       padding: EdgeInsets.all(4.w),
       decoration: BoxDecoration(
-        color: Theme.of(context).cardColor.withValues(alpha: 0.5),
+        color: Theme.of(context).cardColor.withOpacity(0.5),
         border: Border(
           bottom: BorderSide(
             color: Theme.of(context).dividerColor,
@@ -216,7 +216,7 @@ class _FilterOptionsWidgetState extends State<FilterOptionsWidget> {
         padding: EdgeInsets.symmetric(horizontal: 3.w, vertical: 1.h),
         decoration: BoxDecoration(
           color: isSelected
-              ? Theme.of(context).primaryColor.withValues(alpha: 0.1)
+              ? Theme.of(context).primaryColor.withOpacity(0.1)
               : Colors.transparent,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(

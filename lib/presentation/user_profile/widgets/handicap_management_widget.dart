@@ -79,10 +79,10 @@ class HandicapManagementWidget extends StatelessWidget {
                       height: 12.w,
                       decoration: BoxDecoration(
                         color: change < 0 
-                            ? AppTheme.successLight.withValues(alpha: 0.1)
+                            ? AppTheme.successLight.withOpacity(0.1)
                             : change > 0 
-                                ? AppTheme.warningLight.withValues(alpha: 0.1)
-                                : AppTheme.textDisabledLight.withValues(alpha: 0.1),
+                                ? AppTheme.warningLight.withOpacity(0.1)
+                                : AppTheme.textDisabledLight.withOpacity(0.1),
                         shape: BoxShape.circle,
                       ),
                       child: CustomIconWidget(
@@ -258,10 +258,10 @@ class HandicapManagementWidget extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 3.w, vertical: 1.h),
                   decoration: BoxDecoration(
                     color: userData["handicapTrend"] == "improving" 
-                        ? AppTheme.successLight.withValues(alpha: 0.1)
+                        ? AppTheme.successLight.withOpacity(0.1)
                         : userData["handicapTrend"] == "declining" 
-                            ? AppTheme.warningLight.withValues(alpha: 0.1)
-                            : AppTheme.textDisabledLight.withValues(alpha: 0.1),
+                            ? AppTheme.warningLight.withOpacity(0.1)
+                            : AppTheme.textDisabledLight.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Row(

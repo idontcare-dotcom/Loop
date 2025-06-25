@@ -49,7 +49,7 @@ class NextRoundCardWidget extends StatelessWidget {
                         color: Theme.of(context)
                             .colorScheme
                             .primary
-                            .withValues(alpha: 0.1),
+                            .withOpacity(0.1),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Text(
@@ -68,7 +68,7 @@ class NextRoundCardWidget extends StatelessWidget {
                         color: Theme.of(context)
                             .colorScheme
                             .onSurface
-                            .withValues(alpha: 0.6),
+                            .withOpacity(0.6),
                         size: 20,
                       ),
                       onSelected: (value) {
@@ -158,7 +158,7 @@ class NextRoundCardWidget extends StatelessWidget {
                             color: Theme.of(context)
                                 .colorScheme
                                 .onSurface
-                                .withValues(alpha: 0.8),
+                                .withOpacity(0.8),
                             fontWeight: FontWeight.w500,
                           ),
                     ),
@@ -173,7 +173,7 @@ class NextRoundCardWidget extends StatelessWidget {
                             color: Theme.of(context)
                                 .colorScheme
                                 .onSurface
-                                .withValues(alpha: 0.6),
+                                .withOpacity(0.6),
                           ),
                     ),
                     SizedBox(width: 2.w),
@@ -187,7 +187,7 @@ class NextRoundCardWidget extends StatelessWidget {
                                   backgroundColor: Theme.of(context)
                                       .colorScheme
                                       .primary
-                                      .withValues(alpha: 0.1),
+                                      .withOpacity(0.1),
                                   child: ClipOval(
                                     child: CustomImageWidget(
                                       imageUrl: friend["avatar"] as String,
@@ -206,7 +206,7 @@ class NextRoundCardWidget extends StatelessWidget {
                                 color: Theme.of(context)
                                     .colorScheme
                                     .primary
-                                    .withValues(alpha: 0.1),
+                                    .withOpacity(0.1),
                                 shape: BoxShape.circle,
                               ),
                               child: Center(

@@ -110,19 +110,19 @@ class _LogoAnimationWidgetState extends State<LogoAnimationWidget>
         gradient: RadialGradient(
           colors: [
             Colors.white,
-            Colors.white.withValues(alpha: 0.9),
-            Colors.white.withValues(alpha: 0.7),
+            Colors.white.withOpacity(0.9),
+            Colors.white.withOpacity(0.7),
           ],
           stops: const [0.0, 0.7, 1.0],
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.2),
+            color: Colors.black.withOpacity(0.2),
             blurRadius: 20,
             offset: const Offset(0, 10),
           ),
           BoxShadow(
-            color: Colors.white.withValues(alpha: 0.3),
+            color: Colors.white.withOpacity(0.3),
             blurRadius: 10,
             offset: const Offset(0, -5),
           ),
@@ -155,7 +155,7 @@ class _LogoAnimationWidgetState extends State<LogoAnimationWidget>
         boxShadow: [
           BoxShadow(
             color:
-                AppTheme.lightTheme.colorScheme.primary.withValues(alpha: 0.3),
+                AppTheme.lightTheme.colorScheme.primary.withOpacity(0.3),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -174,7 +174,7 @@ class GolfBallPatternPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final Paint paint = Paint()
-      ..color = Colors.grey.withValues(alpha: 0.2)
+      ..color = Colors.grey.withOpacity(0.2)
       ..style = PaintingStyle.fill;
 
     final double centerX = size.width / 2;

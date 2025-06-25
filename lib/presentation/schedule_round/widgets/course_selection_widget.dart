@@ -330,7 +330,7 @@ class _CourseSelectionWidgetState extends State<CourseSelectionWidget> {
                       padding: EdgeInsets.symmetric(vertical: 3.h),
                       decoration: BoxDecoration(
                         color: AppTheme.lightTheme.colorScheme.surface
-                            .withValues(alpha: 0.5),
+                            .withOpacity(0.5),
                         borderRadius: BorderRadius.circular(12),
                         border: Border.all(
                           color: AppTheme.dividerLight,

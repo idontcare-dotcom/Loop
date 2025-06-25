@@ -88,7 +88,7 @@ class SocialActivityWidget extends StatelessWidget {
                     backgroundColor: Theme.of(context)
                         .colorScheme
                         .primary
-                        .withValues(alpha: 0.1),
+                        .withOpacity(0.1),
                     child: ClipOval(
                       child: CustomImageWidget(
                         imageUrl: activity["userAvatar"] as String,
@@ -118,7 +118,7 @@ class SocialActivityWidget extends StatelessWidget {
                             Container(
                               padding: EdgeInsets.all(0.5.w),
                               decoration: BoxDecoration(
-                                color: typeColor.withValues(alpha: 0.1),
+                                color: typeColor.withOpacity(0.1),
                                 shape: BoxShape.circle,
                               ),
                               child: CustomIconWidget(
@@ -137,7 +137,7 @@ class SocialActivityWidget extends StatelessWidget {
                                     color: Theme.of(context)
                                         .colorScheme
                                         .onSurface
-                                        .withValues(alpha: 0.6),
+                                        .withOpacity(0.6),
                                   ),
                         ),
                       ],
@@ -173,7 +173,7 @@ class SocialActivityWidget extends StatelessWidget {
                                 : Theme.of(context)
                                     .colorScheme
                                     .onSurface
-                                    .withValues(alpha: 0.6),
+                                    .withOpacity(0.6),
                             size: 18,
                           ),
                           SizedBox(width: 1.w),
@@ -184,7 +184,7 @@ class SocialActivityWidget extends StatelessWidget {
                                       color: Theme.of(context)
                                           .colorScheme
                                           .onSurface
-                                          .withValues(alpha: 0.8),
+                                          .withOpacity(0.8),
                                       fontWeight: FontWeight.w500,
                                     ),
                           ),
@@ -207,7 +207,7 @@ class SocialActivityWidget extends StatelessWidget {
                             color: Theme.of(context)
                                 .colorScheme
                                 .onSurface
-                                .withValues(alpha: 0.6),
+                                .withOpacity(0.6),
                             size: 18,
                           ),
                           SizedBox(width: 1.w),
@@ -218,7 +218,7 @@ class SocialActivityWidget extends StatelessWidget {
                                       color: Theme.of(context)
                                           .colorScheme
                                           .onSurface
-                                          .withValues(alpha: 0.8),
+                                          .withOpacity(0.8),
                                       fontWeight: FontWeight.w500,
                                     ),
                           ),

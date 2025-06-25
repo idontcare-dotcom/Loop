@@ -74,7 +74,7 @@ class FriendsManagementWidget extends StatelessWidget {
                         shape: BoxShape.circle,
                         border: Border.all(
                           color: AppTheme.lightTheme.primaryColor
-                              .withValues(alpha: 0.3),
+                              .withOpacity(0.3),
                         ),
                       ),
                       child: ClipOval(
@@ -206,7 +206,7 @@ class FriendsManagementWidget extends StatelessWidget {
         color: AppTheme.lightTheme.cardColor,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: AppTheme.dividerLight.withValues(alpha: 0.5),
+          color: AppTheme.dividerLight.withOpacity(0.5),
         ),
       ),
       child: Column(
@@ -217,7 +217,7 @@ class FriendsManagementWidget extends StatelessWidget {
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               border: Border.all(
-                color: AppTheme.lightTheme.primaryColor.withValues(alpha: 0.3),
+                color: AppTheme.lightTheme.primaryColor.withOpacity(0.3),
               ),
             ),
             child: ClipOval(
@@ -305,11 +305,11 @@ class FriendsManagementWidget extends StatelessWidget {
                       padding: EdgeInsets.all(3.w),
                       decoration: BoxDecoration(
                         color: AppTheme.lightTheme.primaryColor
-                            .withValues(alpha: 0.1),
+                            .withOpacity(0.1),
                         borderRadius: BorderRadius.circular(12),
                         border: Border.all(
                           color: AppTheme.lightTheme.primaryColor
-                              .withValues(alpha: 0.3),
+                              .withOpacity(0.3),
                           style: BorderStyle.solid,
                         ),
                       ),
@@ -321,7 +321,7 @@ class FriendsManagementWidget extends StatelessWidget {
                             height: 15.w,
                             decoration: BoxDecoration(
                               color: AppTheme.lightTheme.primaryColor
-                                  .withValues(alpha: 0.1),
+                                  .withOpacity(0.1),
                               shape: BoxShape.circle,
                             ),
                             child: CustomIconWidget(

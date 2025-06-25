@@ -28,8 +28,8 @@ class AchievementBadgesWidget extends StatelessWidget {
               height: 20.w,
               decoration: BoxDecoration(
                 color: achievement["unlocked"] as bool
-                    ? AppTheme.accentLight.withValues(alpha: 0.1)
-                    : AppTheme.textDisabledLight.withValues(alpha: 0.1),
+                    ? AppTheme.accentLight.withOpacity(0.1)
+                    : AppTheme.textDisabledLight.withOpacity(0.1),
                 shape: BoxShape.circle,
               ),
               child: CustomIconWidget(
@@ -91,8 +91,8 @@ class AchievementBadgesWidget extends StatelessWidget {
               height: 15.w,
               decoration: BoxDecoration(
                 color: isUnlocked
-                    ? AppTheme.accentLight.withValues(alpha: 0.1)
-                    : AppTheme.textDisabledLight.withValues(alpha: 0.1),
+                    ? AppTheme.accentLight.withOpacity(0.1)
+                    : AppTheme.textDisabledLight.withOpacity(0.1),
                 shape: BoxShape.circle,
                 border: Border.all(
                   color: isUnlocked

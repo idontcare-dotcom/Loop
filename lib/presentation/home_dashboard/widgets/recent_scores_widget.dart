@@ -144,7 +144,7 @@ class RecentScoresWidget extends StatelessWidget {
                               color: Theme.of(context)
                                   .colorScheme
                                   .onSurface
-                                  .withValues(alpha: 0.6),
+                                  .withOpacity(0.6),
                             ),
                       ),
                       SizedBox(height: 1.h),
@@ -154,7 +154,7 @@ class RecentScoresWidget extends StatelessWidget {
                             padding: EdgeInsets.symmetric(
                                 horizontal: 2.w, vertical: 0.5.h),
                             decoration: BoxDecoration(
-                              color: scoreColor.withValues(alpha: 0.1),
+                              color: scoreColor.withOpacity(0.1),
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: Text(
@@ -176,7 +176,7 @@ class RecentScoresWidget extends StatelessWidget {
                                       color: Theme.of(context)
                                           .colorScheme
                                           .onSurface
-                                          .withValues(alpha: 0.8),
+                                          .withOpacity(0.8),
                                       fontWeight: FontWeight.w500,
                                     ),
                           ),
@@ -188,7 +188,7 @@ class RecentScoresWidget extends StatelessWidget {
                               color: Theme.of(context)
                                   .colorScheme
                                   .primary
-                                  .withValues(alpha: 0.1),
+                                  .withOpacity(0.1),
                               borderRadius: BorderRadius.circular(6),
                             ),
                             child: Text(

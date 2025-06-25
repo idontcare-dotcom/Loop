@@ -137,9 +137,9 @@ class DateTimePickerWidget extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: selectedDate != null
                             ? AppTheme.lightTheme.colorScheme.primary
-                                .withValues(alpha: 0.1)
+                                .withOpacity(0.1)
                             : AppTheme.lightTheme.colorScheme.surface
-                                .withValues(alpha: 0.5),
+                                .withOpacity(0.5),
                         borderRadius: BorderRadius.circular(12),
                         border: Border.all(
                           color: selectedDate != null
@@ -191,9 +191,9 @@ class DateTimePickerWidget extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: selectedTime != null
                             ? AppTheme.lightTheme.colorScheme.primary
-                                .withValues(alpha: 0.1)
+                                .withOpacity(0.1)
                             : AppTheme.lightTheme.colorScheme.surface
-                                .withValues(alpha: 0.5),
+                                .withOpacity(0.5),
                         borderRadius: BorderRadius.circular(12),
                         border: Border.all(
                           color: selectedTime != null
@@ -240,10 +240,10 @@ class DateTimePickerWidget extends StatelessWidget {
                 width: double.infinity,
                 padding: EdgeInsets.all(3.w),
                 decoration: BoxDecoration(
-                  color: AppTheme.successLight.withValues(alpha: 0.1),
+                  color: AppTheme.successLight.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(8),
                   border: Border.all(
-                    color: AppTheme.successLight.withValues(alpha: 0.3),
+                    color: AppTheme.successLight.withOpacity(0.3),
                     style: BorderStyle.solid,
                   ),
                 ),

@@ -106,7 +106,7 @@ class QuickStatsWidget extends StatelessWidget {
                             color: Theme.of(context)
                                 .colorScheme
                                 .onSurface
-                                .withValues(alpha: 0.6),
+                                .withOpacity(0.6),
                           ),
                     ),
                     SizedBox(width: 1.w),
@@ -115,7 +115,7 @@ class QuickStatsWidget extends StatelessWidget {
                       color: Theme.of(context)
                           .colorScheme
                           .onSurface
-                          .withValues(alpha: 0.6),
+                          .withOpacity(0.6),
                       size: 12,
                     ),
                   ],
@@ -139,7 +139,7 @@ class QuickStatsWidget extends StatelessWidget {
       children: [
         CustomIconWidget(
           iconName: icon.toString().split('.').last,
-          color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.7),
+          color: Theme.of(context).colorScheme.primary.withOpacity(0.7),
           size: 24,
         ),
         SizedBox(height: 1.h),
@@ -157,7 +157,7 @@ class QuickStatsWidget extends StatelessWidget {
                 color: Theme.of(context)
                     .colorScheme
                     .onSurface
-                    .withValues(alpha: 0.6),
+                    .withOpacity(0.6),
               ),
           textAlign: TextAlign.center,
         ),

@@ -150,11 +150,11 @@ class _NotesSectionWidgetState extends State<NotesSectionWidget> {
                 padding: EdgeInsets.all(3.w),
                 decoration: BoxDecoration(
                   color: AppTheme.lightTheme.colorScheme.primary
-                      .withValues(alpha: 0.05),
+                      .withOpacity(0.05),
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(
                     color: AppTheme.lightTheme.colorScheme.primary
-                        .withValues(alpha: 0.2),
+                        .withOpacity(0.2),
                     style: BorderStyle.solid,
                   ),
                 ),
@@ -236,7 +236,7 @@ class _NotesSectionWidgetState extends State<NotesSectionWidget> {
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 3.w, vertical: 1.h),
         decoration: BoxDecoration(
-          color: AppTheme.lightTheme.colorScheme.surface.withValues(alpha: 0.5),
+          color: AppTheme.lightTheme.colorScheme.surface.withOpacity(0.5),
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
             color: AppTheme.dividerLight,

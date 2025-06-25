@@ -59,7 +59,7 @@ class MiniScorecardWidget extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 3.w, vertical: 1.h),
                 decoration: BoxDecoration(
                   color: _getScoreColor(totalScore, totalPar)
-                      .withValues(alpha: 0.1),
+                      .withOpacity(0.1),
                   borderRadius: BorderRadius.circular(12.0),
                   border: Border.all(
                     color: _getScoreColor(totalScore, totalPar),
@@ -115,7 +115,7 @@ class MiniScorecardWidget extends StatelessWidget {
                     color: isCurrentHole
                         ? AppTheme.lightTheme.colorScheme.primary
                         : score != null
-                            ? scoreColor.withValues(alpha: 0.1)
+                            ? scoreColor.withOpacity(0.1)
                             : AppTheme.lightTheme.cardColor,
                     borderRadius: BorderRadius.circular(12.0),
                     border: Border.all(
@@ -130,7 +130,7 @@ class MiniScorecardWidget extends StatelessWidget {
                         ? [
                             BoxShadow(
                               color: AppTheme.lightTheme.colorScheme.primary
-                                  .withValues(alpha: 0.3),
+                                  .withOpacity(0.3),
                               blurRadius: 8,
                               offset: const Offset(0, 4),
                             ),
@@ -147,7 +147,7 @@ class MiniScorecardWidget extends StatelessWidget {
                           color: isCurrentHole
                               ? AppTheme.lightTheme.colorScheme.onPrimary
                               : AppTheme.lightTheme.colorScheme.onSurface
-                                  .withValues(alpha: 0.6),
+                                  .withOpacity(0.6),
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -158,7 +158,7 @@ class MiniScorecardWidget extends StatelessWidget {
                         decoration: BoxDecoration(
                           color: isCurrentHole
                               ? AppTheme.lightTheme.colorScheme.onPrimary
-                                  .withValues(alpha: 0.2)
+                                  .withOpacity(0.2)
                               : Colors.transparent,
                           borderRadius: BorderRadius.circular(8.0),
                         ),
@@ -176,7 +176,7 @@ class MiniScorecardWidget extends StatelessWidget {
                                       ? scoreColor
                                       : AppTheme
                                           .lightTheme.colorScheme.onSurface
-                                          .withValues(alpha: 0.4),
+                                          .withOpacity(0.4),
                             ),
                           ),
                         ),
@@ -188,9 +188,9 @@ class MiniScorecardWidget extends StatelessWidget {
                             AppTheme.lightTheme.textTheme.labelSmall?.copyWith(
                           color: isCurrentHole
                               ? AppTheme.lightTheme.colorScheme.onPrimary
-                                  .withValues(alpha: 0.8)
+                                  .withOpacity(0.8)
                               : AppTheme.lightTheme.colorScheme.onSurface
-                                  .withValues(alpha: 0.5),
+                                  .withOpacity(0.5),
                         ),
                       ),
                     ],

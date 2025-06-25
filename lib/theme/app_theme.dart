@@ -80,7 +80,7 @@ class AppTheme {
       onSecondaryContainer: onSecondaryLight,
       tertiary: accentLight,
       onTertiary: onPrimaryLight,
-      tertiaryContainer: accentLight.withValues(alpha: 0.1),
+      tertiaryContainer: accentLight.withOpacity(0.1),
       onTertiaryContainer: accentLight,
       error: errorLight,
       onError: onErrorLight,
@@ -88,7 +88,7 @@ class AppTheme {
       onSurface: onSurfaceLight,
       onSurfaceVariant: textMediumEmphasisLight,
       outline: dividerLight,
-      outlineVariant: dividerLight.withValues(alpha: 0.5),
+      outlineVariant: dividerLight.withOpacity(0.5),
       shadow: shadowLight,
       scrim: shadowLight,
       inverseSurface: surfaceDark,
@@ -194,11 +194,11 @@ class AppTheme {
       contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(16.0),
-        borderSide: BorderSide(color: dividerLight.withValues(alpha: 0.5)),
+        borderSide: BorderSide(color: dividerLight.withOpacity(0.5)),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(16.0),
-        borderSide: BorderSide(color: dividerLight.withValues(alpha: 0.5)),
+        borderSide: BorderSide(color: dividerLight.withOpacity(0.5)),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(16.0),
@@ -237,7 +237,7 @@ class AppTheme {
       }),
       trackColor: WidgetStateProperty.resolveWith((states) {
         if (states.contains(WidgetState.selected)) {
-          return primaryLight.withValues(alpha: 0.5);
+          return primaryLight.withOpacity(0.5);
         }
         return Colors.grey[400];
       }),
@@ -270,8 +270,8 @@ class AppTheme {
     sliderTheme: SliderThemeData(
       activeTrackColor: primaryLight,
       thumbColor: primaryLight,
-      overlayColor: primaryLight.withValues(alpha: 0.2),
-      inactiveTrackColor: primaryLight.withValues(alpha: 0.3),
+      overlayColor: primaryLight.withOpacity(0.2),
+      inactiveTrackColor: primaryLight.withOpacity(0.3),
       trackHeight: 4.0,
     ),
     tabBarTheme: TabBarTheme(
@@ -290,7 +290,7 @@ class AppTheme {
     ),
     tooltipTheme: TooltipThemeData(
       decoration: BoxDecoration(
-        color: onSurfaceLight.withValues(alpha: 0.9),
+        color: onSurfaceLight.withOpacity(0.9),
         borderRadius: BorderRadius.circular(8.0),
       ),
       textStyle: GoogleFonts.inter(
@@ -348,7 +348,7 @@ class AppTheme {
       onSecondaryContainer: onSecondaryDark,
       tertiary: accentDark,
       onTertiary: onPrimaryDark,
-      tertiaryContainer: accentDark.withValues(alpha: 0.1),
+      tertiaryContainer: accentDark.withOpacity(0.1),
       onTertiaryContainer: accentDark,
       error: errorDark,
       onError: onErrorDark,
@@ -356,7 +356,7 @@ class AppTheme {
       onSurface: onSurfaceDark,
       onSurfaceVariant: textMediumEmphasisDark,
       outline: dividerDark,
-      outlineVariant: dividerDark.withValues(alpha: 0.5),
+      outlineVariant: dividerDark.withOpacity(0.5),
       shadow: shadowDark,
       scrim: shadowDark,
       inverseSurface: surfaceLight,
@@ -462,11 +462,11 @@ class AppTheme {
       contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(16.0),
-        borderSide: BorderSide(color: dividerDark.withValues(alpha: 0.5)),
+        borderSide: BorderSide(color: dividerDark.withOpacity(0.5)),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(16.0),
-        borderSide: BorderSide(color: dividerDark.withValues(alpha: 0.5)),
+        borderSide: BorderSide(color: dividerDark.withOpacity(0.5)),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(16.0),
@@ -505,7 +505,7 @@ class AppTheme {
       }),
       trackColor: WidgetStateProperty.resolveWith((states) {
         if (states.contains(WidgetState.selected)) {
-          return primaryDark.withValues(alpha: 0.5);
+          return primaryDark.withOpacity(0.5);
         }
         return Colors.grey[700];
       }),
@@ -538,8 +538,8 @@ class AppTheme {
     sliderTheme: SliderThemeData(
       activeTrackColor: primaryDark,
       thumbColor: primaryDark,
-      overlayColor: primaryDark.withValues(alpha: 0.2),
-      inactiveTrackColor: primaryDark.withValues(alpha: 0.3),
+      overlayColor: primaryDark.withOpacity(0.2),
+      inactiveTrackColor: primaryDark.withOpacity(0.3),
       trackHeight: 4.0,
     ),
     tabBarTheme: TabBarTheme(
@@ -558,7 +558,7 @@ class AppTheme {
     ),
     tooltipTheme: TooltipThemeData(
       decoration: BoxDecoration(
-        color: onSurfaceDark.withValues(alpha: 0.9),
+        color: onSurfaceDark.withOpacity(0.9),
         borderRadius: BorderRadius.circular(8.0),
       ),
       textStyle: GoogleFonts.inter(

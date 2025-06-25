@@ -72,7 +72,7 @@ class ProfileHeaderWidget extends StatelessWidget {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            AppTheme.lightTheme.primaryColor.withValues(alpha: 0.1),
+            AppTheme.lightTheme.primaryColor.withOpacity(0.1),
             AppTheme.lightTheme.scaffoldBackgroundColor,
           ],
         ),
@@ -163,10 +163,10 @@ class ProfileHeaderWidget extends StatelessWidget {
           Container(
             padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.h),
             decoration: BoxDecoration(
-              color: AppTheme.lightTheme.primaryColor.withValues(alpha: 0.1),
+              color: AppTheme.lightTheme.primaryColor.withOpacity(0.1),
               borderRadius: BorderRadius.circular(12),
               border: Border.all(
-                color: AppTheme.lightTheme.primaryColor.withValues(alpha: 0.3),
+                color: AppTheme.lightTheme.primaryColor.withOpacity(0.3),
               ),
             ),
             child: Row(

@@ -162,10 +162,10 @@ class _FriendsInvitationWidgetState extends State<FriendsInvitationWidget> {
                     ),
                     onDeleted: () => _removeFriend(friend),
                     backgroundColor: AppTheme.lightTheme.colorScheme.primary
-                        .withValues(alpha: 0.1),
+                        .withOpacity(0.1),
                     side: BorderSide(
                       color: AppTheme.lightTheme.colorScheme.primary
-                          .withValues(alpha: 0.3),
+                          .withOpacity(0.3),
                       style: BorderStyle.solid,
                     ),
                   );

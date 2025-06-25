@@ -260,7 +260,7 @@ class _SplashScreenState extends State<SplashScreen>
           Text(
             _loadingStatus,
             style: AppTheme.lightTheme.textTheme.bodyMedium?.copyWith(
-              color: Colors.white.withValues(alpha: 0.8),
+              color: Colors.white.withOpacity(0.8),
             ),
             textAlign: TextAlign.center,
           ),

@@ -154,9 +154,9 @@ class _AdvancedOptionsWidgetState extends State<AdvancedOptionsWidget> {
                                 decoration: BoxDecoration(
                                   color: isSelected
                                       ? AppTheme.lightTheme.colorScheme.primary
-                                          .withValues(alpha: 0.1)
+                                          .withOpacity(0.1)
                                       : AppTheme.lightTheme.colorScheme.surface
-                                          .withValues(alpha: 0.5),
+                                          .withOpacity(0.5),
                                   borderRadius: BorderRadius.circular(12),
                                   border: Border.all(
                                     color: isSelected
@@ -239,7 +239,7 @@ class _AdvancedOptionsWidgetState extends State<AdvancedOptionsWidget> {
                           padding: EdgeInsets.all(3.w),
                           decoration: BoxDecoration(
                             color: AppTheme.lightTheme.colorScheme.surface
-                                .withValues(alpha: 0.5),
+                                .withOpacity(0.5),
                             borderRadius: BorderRadius.circular(12),
                             border: Border.all(
                               color: AppTheme.dividerLight,
@@ -310,7 +310,7 @@ class _AdvancedOptionsWidgetState extends State<AdvancedOptionsWidget> {
                           padding: EdgeInsets.all(3.w),
                           decoration: BoxDecoration(
                             color: AppTheme.lightTheme.colorScheme.surface
-                                .withValues(alpha: 0.5),
+                                .withOpacity(0.5),
                             borderRadius: BorderRadius.circular(12),
                             border: Border.all(
                               color: AppTheme.dividerLight,
@@ -368,11 +368,11 @@ class _AdvancedOptionsWidgetState extends State<AdvancedOptionsWidget> {
                           padding: EdgeInsets.all(3.w),
                           decoration: BoxDecoration(
                             color: AppTheme.lightTheme.colorScheme.primary
-                                .withValues(alpha: 0.05),
+                                .withOpacity(0.05),
                             borderRadius: BorderRadius.circular(12),
                             border: Border.all(
                               color: AppTheme.lightTheme.colorScheme.primary
-                                  .withValues(alpha: 0.2),
+                                  .withOpacity(0.2),
                               style: BorderStyle.solid,
                             ),
                           ),

@@ -54,7 +54,7 @@ class ScoreEntryWidget extends StatelessWidget {
             Container(
               padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 2.h),
               decoration: BoxDecoration(
-                color: _getScoreColor(currentScore, par).withValues(alpha: 0.1),
+                color: _getScoreColor(currentScore, par).withOpacity(0.1),
                 borderRadius: BorderRadius.circular(16.0),
                 border: Border.all(
                   color: _getScoreColor(currentScore, par),
@@ -120,7 +120,7 @@ class ScoreEntryWidget extends StatelessWidget {
                       boxShadow: isSelected
                           ? [
                               BoxShadow(
-                                color: scoreColor.withValues(alpha: 0.3),
+                                color: scoreColor.withOpacity(0.3),
                                 blurRadius: 8,
                                 offset: const Offset(0, 4),
                               ),
@@ -155,8 +155,8 @@ class ScoreEntryWidget extends StatelessWidget {
                               ?.copyWith(
                             color: isSelected
                                 ? AppTheme.lightTheme.colorScheme.onPrimary
-                                    .withValues(alpha: 0.8)
-                                : scoreColor.withValues(alpha: 0.8),
+                                    .withOpacity(0.8)
+                                : scoreColor.withOpacity(0.8),
                             fontWeight: FontWeight.w500,
                           ),
                           textAlign: TextAlign.center,
