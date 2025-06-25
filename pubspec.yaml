@@ -16,6 +16,7 @@ dependencies:
   fl_chart: ^0.65.0
   google_fonts: ^6.1.0
   web: any
+  supabase_flutter: ^2.0.2
 dev_dependencies: 
   flutter_test: 
     sdk: flutter
@@ -25,3 +26,4 @@ flutter:
   assets: 
     - assets/
     - assets/images/
+    - env.json

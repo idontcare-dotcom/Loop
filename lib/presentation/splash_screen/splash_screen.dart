@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../core/app_export.dart';
+import '../../services/auth_service.dart';
 import './widgets/background_gradient_widget.dart';
 import './widgets/loading_indicator_widget.dart';
 import './widgets/logo_animation_widget.dart';
@@ -75,6 +76,7 @@ class _SplashScreenState extends State<SplashScreen>
     try {
       // Hide system UI for immersive experience
       SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+      await AuthService.instance.init();
 
       // Simulate app initialization tasks
       await _performInitializationTasks();
@@ -124,8 +126,9 @@ class _SplashScreenState extends State<SplashScreen>
       if (mounted) {
         // Navigate based on authentication status
         final bool isAuthenticated = await _checkAuthenticationStatus();
-        final String nextRoute =
-            isAuthenticated ? '/home-dashboard' : '/home-dashboard';
+        final String nextRoute = isAuthenticated
+            ? AppRoutes.homeDashboard
+            : AppRoutes.login;
 
         Navigator.pushReplacementNamed(context, nextRoute);
       }
@@ -133,9 +136,7 @@ class _SplashScreenState extends State<SplashScreen>
   }
 
   Future<bool> _checkAuthenticationStatus() async {
-    // Mock authentication check
-    await Future.delayed(const Duration(milliseconds: 200));
-    return true; // For demo purposes, assume user is authenticated
+    return AuthService.instance.isSignedIn;
   }
 
   void _retryInitialization() {
