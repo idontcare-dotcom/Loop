@@ -9,18 +9,19 @@ import '../models/score.dart';
 class DatabaseService {
   final Dio _dio;
 
-  DatabaseService({required String baseUrl, required String anonKey})
-      : _dio = Dio(
-          BaseOptions(
-            baseUrl: '${baseUrl}/rest/v1/',
-            headers: {
-              'apikey': anonKey,
-              'Authorization': 'Bearer $anonKey',
-              'Content-Type': 'application/json',
-              'Accept': 'application/json',
-            },
-          ),
-        );
+  DatabaseService({required String baseUrl, required String anonKey, Dio? dio})
+      : _dio = dio ??
+            Dio(
+              BaseOptions(
+                baseUrl: '${baseUrl}/rest/v1/',
+                headers: {
+                  'apikey': anonKey,
+                  'Authorization': 'Bearer $anonKey',
+                  'Content-Type': 'application/json',
+                  'Accept': 'application/json',
+                },
+              ),
+            );
 
   Future<List<Round>> fetchRounds() async {
     final response = await _dio.get('rounds');
