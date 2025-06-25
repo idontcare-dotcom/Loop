@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../core/app_export.dart';
+import '../../core/config.dart';
+import '../../services/database_service.dart';
+import '../../models/round.dart';
+import '../../models/score.dart';
 import '../../widgets/custom_icon_widget.dart';
 import './widgets/greeting_header_widget.dart';
 import './widgets/next_round_card_widget.dart';
@@ -20,7 +24,12 @@ class _HomeDashboardState extends State<HomeDashboard> {
   int _currentIndex = 0;
   bool _isRefreshing = false;
 
-  // Mock data for the dashboard
+  final DatabaseService _dbService = DatabaseService(
+    baseUrl: Config.supabaseUrl,
+    anonKey: Config.supabaseAnonKey,
+  );
+
+  // Static user data for the dashboard
   final Map<String, dynamic> userData = {
     "name": "Alex Johnson",
     "handicap": 12.4,
@@ -30,62 +39,8 @@ class _HomeDashboardState extends State<HomeDashboard> {
     "weather": "Sunny, 72°F"
   };
 
-  final Map<String, dynamic> nextRound = {
-    "id": 1,
-    "courseName": "Pebble Beach Golf Links",
-    "date": "Tomorrow",
-    "time": "8:30 AM",
-    "invitedFriends": [
-      {
-        "name": "Mike Chen",
-        "avatar":
-            "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
-      },
-      {
-        "name": "Sarah Wilson",
-        "avatar":
-            "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face"
-      },
-      {
-        "name": "Tom Rodriguez",
-        "avatar":
-            "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
-      }
-    ]
-  };
-
-  final List<Map<String, dynamic>> recentScores = [
-    {
-      "id": 1,
-      "courseName": "Augusta National",
-      "date": "March 15, 2024",
-      "score": 78,
-      "par": 72,
-      "format": "Stroke Play",
-      "courseImage":
-          "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=400&h=200&fit=crop"
-    },
-    {
-      "id": 2,
-      "courseName": "St. Andrews Links",
-      "date": "March 12, 2024",
-      "score": 82,
-      "par": 72,
-      "format": "Match Play",
-      "courseImage":
-          "https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?w=400&h=200&fit=crop"
-    },
-    {
-      "id": 3,
-      "courseName": "Torrey Pines",
-      "date": "March 8, 2024",
-      "score": 76,
-      "par": 72,
-      "format": "Stableford",
-      "courseImage":
-          "https://images.unsplash.com/photo-1587174486073-ae5e5cec4cce?w=400&h=200&fit=crop"
-    }
-  ];
+  late Future<Round?> _nextRoundFuture;
+  late Future<List<Score>> _recentScoresFuture;
 
   final List<Map<String, dynamic>> socialActivity = [
     {
@@ -126,13 +81,29 @@ class _HomeDashboardState extends State<HomeDashboard> {
     }
   ];
 
+  @override
+  void initState() {
+    super.initState();
+    _loadData();
+  }
+
+  void _loadData() {
+    _nextRoundFuture = _dbService
+        .fetchRounds()
+        .then((list) => list.isNotEmpty ? list.first : null);
+    _recentScoresFuture = _dbService.fetchScores();
+  }
+
   Future<void> _handleRefresh() async {
     setState(() {
       _isRefreshing = true;
     });
 
-    // Simulate API call
-    await Future.delayed(const Duration(seconds: 2));
+    _loadData();
+    await Future.wait([
+      _nextRoundFuture,
+      _recentScoresFuture,
+    ]);
 
     setState(() {
       _isRefreshing = false;
@@ -191,19 +162,19 @@ class _HomeDashboardState extends State<HomeDashboard> {
                     SizedBox(height: 2.h),
 
                     // Next Round Card
-                    NextRoundCardWidget(
-                      roundData: nextRound,
-                      onTap: () {
-                        // Navigate to round details
-                      },
-                      onMessageGroup: () {
-                        // Open group chat
-                      },
-                      onGetDirections: () {
-                        // Open maps
-                      },
-                      onCancelRound: () {
-                        // Cancel round
+                    FutureBuilder<Round?>(
+                      future: _nextRoundFuture,
+                      builder: (context, snapshot) {
+                        if (!snapshot.hasData) {
+                          return const SizedBox.shrink();
+                        }
+                        return NextRoundCardWidget(
+                          roundData: snapshot.data!.toJson(),
+                          onTap: () {},
+                          onMessageGroup: () {},
+                          onGetDirections: () {},
+                          onCancelRound: () {},
+                        );
                       },
                     ),
 
@@ -221,14 +192,7 @@ class _HomeDashboardState extends State<HomeDashboard> {
 
                     SizedBox(height: 3.h),
 
-                    // Recent Scores Section
-                    RecentScoresWidget(
-                      scores: recentScores,
-                      onScoreCardTap: (scoreData) {
-                        // Navigate to score details
-                      },
-                      onScoreCardLongPress: (scoreData) {
-                        _showScoreContextMenu(scoreData);
+                    // Recent Scores Section                 
                       },
                     ),
 
@@ -387,7 +351,11 @@ class _HomeDashboardState extends State<HomeDashboard> {
               ),
               onTap: () {
                 Navigator.pop(context);
-                // Navigate to score details
+                Navigator.pushNamed(
+                  context,
+                  '/round-detail',
+                  arguments: scoreData['id'],
+                );
               },
             ),
             ListTile(

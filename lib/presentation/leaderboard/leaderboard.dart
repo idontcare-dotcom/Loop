@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../core/app_export.dart';
+import '../../core/config.dart';
+import '../../services/database_service.dart';
+import '../../models/player.dart';
 import './widgets/filter_options_widget.dart';
 import './widgets/leaderboard_header_widget.dart';
 import './widgets/player_row_widget.dart';
@@ -22,150 +25,15 @@ class _LeaderboardState extends State<Leaderboard>
   final String _searchQuery = '';
   final TextEditingController _searchController = TextEditingController();
 
-  // Mock data for leaderboard
-  final List<Map<String, dynamic>> _currentRoundData = [
-    {
-      "id": 1,
-      "position": 1,
-      "name": "Michael Rodriguez",
-      "avatar":
-          "https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659652_640.png",
-      "currentScore": -3,
-      "holesCompleted": 18,
-      "totalStrokes": 69,
-      "scoreToPar": -3,
-      "holeByHole": [4, 3, 5, 4, 3, 4, 5, 3, 4, 4, 3, 5, 4, 3, 4, 5, 3, 4],
-      "isLive": true,
-      "lastUpdated": "2 min ago"
-    },
-    {
-      "id": 2,
-      "position": 2,
-      "name": "Sarah Johnson",
-      "avatar":
-          "https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659652_640.png",
-      "currentScore": -2,
-      "holesCompleted": 17,
-      "totalStrokes": 70,
-      "scoreToPar": -2,
-      "holeByHole": [4, 4, 5, 3, 3, 4, 5, 4, 4, 4, 3, 5, 4, 3, 4, 5, 3],
-      "isLive": true,
-      "lastUpdated": "1 min ago"
-    },
-    {
-      "id": 3,
-      "position": 3,
-      "name": "David Chen",
-      "avatar":
-          "https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659652_640.png",
-      "currentScore": -1,
-      "holesCompleted": 16,
-      "totalStrokes": 71,
-      "scoreToPar": -1,
-      "holeByHole": [5, 3, 5, 4, 4, 4, 5, 3, 4, 4, 3, 5, 4, 3, 4, 5],
-      "isLive": true,
-      "lastUpdated": "3 min ago"
-    },
-    {
-      "id": 4,
-      "position": 4,
-      "name": "Emma Wilson",
-      "avatar":
-          "https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659652_640.png",
-      "currentScore": 0,
-      "holesCompleted": 18,
-      "totalStrokes": 72,
-      "scoreToPar": 0,
-      "holeByHole": [4, 4, 5, 4, 3, 4, 5, 3, 4, 4, 3, 5, 4, 4, 4, 5, 3, 4],
-      "isLive": false,
-      "lastUpdated": "5 min ago"
-    },
-    {
-      "id": 5,
-      "position": 5,
-      "name": "James Thompson",
-      "avatar":
-          "https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659652_640.png",
-      "currentScore": 1,
-      "holesCompleted": 15,
-      "totalStrokes": 73,
-      "scoreToPar": 1,
-      "holeByHole": [4, 4, 6, 4, 3, 4, 5, 4, 4, 4, 3, 5, 4, 4, 4],
-      "isLive": true,
-      "lastUpdated": "4 min ago"
-    },
-  ];
+  // Data containers populated from the database
+  List<Map<String, dynamic>> _currentRoundData = [];
+  List<Map<String, dynamic>> _tournamentData = [];
+  List<Map<String, dynamic>> _friendsData = [];
 
-  final List<Map<String, dynamic>> _tournamentData = [
-    {
-      "id": 1,
-      "position": 1,
-      "name": "Michael Rodriguez",
-      "avatar":
-          "https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659652_640.png",
-      "totalScore": -8,
-      "roundsPlayed": 3,
-      "totalStrokes": 208,
-      "scoreToPar": -8,
-      "rounds": [69, 70, 69],
-      "trend": "up"
-    },
-    {
-      "id": 2,
-      "position": 2,
-      "name": "Sarah Johnson",
-      "avatar":
-          "https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659652_640.png",
-      "totalScore": -6,
-      "roundsPlayed": 3,
-      "totalStrokes": 210,
-      "scoreToPar": -6,
-      "rounds": [71, 69, 70],
-      "trend": "stable"
-    },
-    {
-      "id": 3,
-      "position": 3,
-      "name": "David Chen",
-      "avatar":
-          "https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659652_640.png",
-      "totalScore": -4,
-      "roundsPlayed": 3,
-      "totalStrokes": 212,
-      "scoreToPar": -4,
-      "rounds": [70, 71, 71],
-      "trend": "down"
-    },
-  ];
-
-  final List<Map<String, dynamic>> _friendsData = [
-    {
-      "id": 1,
-      "position": 1,
-      "name": "Alex Parker",
-      "avatar":
-          "https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659652_640.png",
-      "currentScore": -2,
-      "holesCompleted": 18,
-      "totalStrokes": 70,
-      "scoreToPar": -2,
-      "isFriend": true,
-      "status": "online"
-    },
-    {
-      "id": 2,
-      "position": 2,
-      "name": "Lisa Martinez",
-      "avatar":
-          "https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659652_640.png",
-      "currentScore": 1,
-      "holesCompleted": 16,
-      "totalStrokes": 73,
-      "scoreToPar": 1,
-      "isFriend": true,
-      "status": "playing"
-    },
-  ];
+  final DatabaseService _dbService = DatabaseService(
+    baseUrl: Config.supabaseUrl,
+    anonKey: Config.supabaseAnonKey,
+  );
 
   @override
   void initState() {
@@ -176,6 +44,7 @@ class _LeaderboardState extends State<Leaderboard>
         _currentTabIndex = _tabController.index;
       });
     });
+    _loadData();
   }
 
   @override
@@ -212,13 +81,23 @@ class _LeaderboardState extends State<Leaderboard>
     return data;
   }
 
+  void _loadData() {
+    _dbService.fetchLeaderboard().then((players) {
+      setState(() {
+        _currentRoundData = players.map((e) => e.toJson()).toList();
+        _tournamentData = _currentRoundData;
+        _friendsData = _currentRoundData;
+      });
+    });
+  }
+
   Future<void> _handleRefresh() async {
     setState(() {
       _isRefreshing = true;
     });
 
-    // Simulate network delay
-    await Future.delayed(const Duration(seconds: 2));
+    _loadData();
+    await Future.delayed(const Duration(milliseconds: 200));
 
     setState(() {
       _isRefreshing = false;
