@@ -54,3 +54,16 @@ flutter test
 The colors used when the application runs in dark mode are defined in
 `lib/theme/dark_palette.dart`. These constants mirror the values consumed by
 `AppTheme.darkTheme` and can be referenced directly throughout the app.
+
+## iOS Build Notes
+
+If Xcode reports `could not find included file 'Generated.xcconfig'` when
+opening the project, run the following commands to generate it:
+
+```bash
+flutter pub get
+cd ios && pod install && cd ..
+```
+
+After running these commands, open `ios/Runner.xcworkspace` in Xcode and the
+project should build without the missing configuration error.
